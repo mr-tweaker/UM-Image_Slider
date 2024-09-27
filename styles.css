@@ -169,16 +169,7 @@ h1 {
   }
 
   .image-container {
-    height: 300px;
-  }
-
-  .image-container span {
-    transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
-  }
-
-  .background-video {
-    height: 100vh;
-    width: auto;
+    max-width: 300px;
   }
 }
 
@@ -193,10 +184,6 @@ h1 {
 
   .image-container {
     height: 250px;
-  }
-
-  .image-container span {
-    transform: rotateY(calc(var(--i) * 45deg)) translateZ(250px);
   }
 
   .btn-container .btn {

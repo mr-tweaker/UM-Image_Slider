@@ -21,20 +21,21 @@ header {
 }
 
 header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-    z-index: -1;
-  }
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
 
 .content {
   position: relative;
   text-align: center;
   z-index: 2;
+  padding: 1rem;
 }
 
 h1 {
@@ -86,26 +87,27 @@ h1 {
 
 /* Gallery Card */
 .gallery-card {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 2rem;
-    margin: 0rem auto;
-    max-width: 100%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .gallery-card h2 {
-    color: #ffffff;
-    font-family: "Permanent Marker", cursive;
-    margin-bottom: 1rem;
-  }
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card h2 {
+  color: #ffffff;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 1rem;
+}
 
 /* Rotating Image Gallery */
 .image-container {
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 400px;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateY(0deg);
@@ -132,8 +134,8 @@ h1 {
 }
 
 .image-container span:hover img {
-    transform: scale(1.05);
-  }
+  transform: scale(1.05);
+}
 
 .btn-container {
   display: flex;
@@ -142,16 +144,63 @@ h1 {
 }
 
 .btn-container .btn {
-    background-color: #4b0082; /* A darker shade of purple for better contrast */
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+  background-color: #4b0082;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
 .btn-container .btn:hover {
-background-color: #6a5acd;
+  background-color: #6a5acd;
   filter: brightness(1.5);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    font-size: 1.2rem;
+  }
+
+  .image-container {
+    height: 300px;
+  }
+
+  .image-container span {
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+  }
+
+  .background-video {
+    height: 100vh;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    font-size: 1rem;
+  }
+
+  .image-container {
+    height: 250px;
+  }
+
+  .image-container span {
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(250px);
+  }
+
+  .btn-container .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
